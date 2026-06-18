@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gerador de Relatório e Termo de Realização de Estágio - IFSP Sorocaba</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<header class="topo">
+  <h1>Gerador de Relatório de Atividades, Termo de Realização e Avaliação do Estágio</h1>
+  <p>Licenciaturas — IFSP Campus Sorocaba</p>
+</header>
+
+<main class="container">
+  <aside class="formulario">
+    <h2>Preenchimento</h2>
+    <p class="aviso">Campos com * são obrigatórios.</p>
+
+    <fieldset>
+      <legend>Identificação do(a) aluno(a)</legend>
+      <label>Nome *</label><input id="nomeAluno" required>
+      <label>Curso *</label><input id="curso" required placeholder="Licenciatura em Pedagogia">
+      <label>Período/Semestre *</label>
+      <select id="periodoSemestre" required>
+        <option value="">Selecione</option>
+        <option>1º semestre</option><option>2º semestre</option><option>3º semestre</option><option>4º semestre</option>
+        <option>5º semestre</option><option>6º semestre</option><option>7º semestre</option><option>8º semestre</option>
+      </select>
+      <label>Prontuário *</label><input id="prontuario" required>
+      <label>E-mail *</label><input id="emailAluno" type="email" required>
+      <label>Telefone *</label><input id="telefoneAluno" required data-mask="telefone" placeholder="(15) 90000-0000">
+      <label>Portador de deficiência? *</label>
+      <select id="deficiencia" required><option value="">Selecione</option><option>Não</option><option>Sim</option></select>
+      <label>Especificação, se sim</label><input id="deficienciaDescricao">
+    </fieldset>
+
+    <fieldset>
+      <legend>Dados do estágio</legend>
+      <label>Tipo *</label><select id="tipoEstagio" required><option value="">Selecione</option><option>Obrigatório</option><option>Não Obrigatório</option></select>
+      <label>Início do estágio *</label><input id="inicioEstagio" required data-mask="data" placeholder="dd/mm/aaaa" maxlength="10">
+      <label>Término do estágio *</label><input id="terminoEstagio" required data-mask="data" placeholder="dd/mm/aaaa" maxlength="10">
+      <label>Horário do estágio *</label><select id="horarioEstagio" required><option value="">Selecione</option><option>matutino</option><option>vespertino</option><option>integral</option><option>noturno</option></select>
+      <label>Total de horas *</label><input id="totalHoras" required placeholder="100 horas">
+      <label>Avaliação/Relatório *</label><select id="avaliacaoRelatorio" required><option value="">Selecione</option><option>Parcial</option><option>Final</option></select>
+      <label>Motivo do encerramento</label>
+      <select id="motivoEncerramento">
+        <option value="">Selecione, se relatório final</option>
+        <option>Término do período previsto no Termo de Compromisso</option>
+        <option>Contratação do(a) Estagiário(a) pela Unidade Concedente</option>
+        <option>Rescisão por iniciativa da Unidade Concedente</option>
+        <option>Rescisão por iniciativa do(a) Estagiário(a)</option>
+        <option>Rescisão por iniciativa da Instituição de Ensino</option>
+        <option>Outro</option>
+      </select>
+      <label>Outro motivo</label><input id="motivoOutro">
+    </fieldset>
+
+    <fieldset>
+      <legend>Dados da empresa / escola</legend>
+      <label>Razão Social / Escola *</label><input id="razaoSocial" required>
+      <label>CNPJ</label><input id="cnpj" data-mask="cnpj" placeholder="00.000.000/0000-00" maxlength="18">
+      <label>Ramo de atividade</label><input id="ramoAtividade">
+      <label>CPF, se autônomo</label><input id="cpfAutonomo" data-mask="cpf" placeholder="000.000.000-00" maxlength="14">
+      <label>Telefone *</label><input id="telefoneEmpresa" required data-mask="telefone">
+      <label>Endereço *</label><input id="endereco" required>
+      <label>CEP *</label><input id="cep" required data-mask="cep" placeholder="00000-000" maxlength="9">
+      <label>Bairro *</label><input id="bairro" required>
+      <label>Cidade *</label><input id="cidade" required>
+      <label>Estado *</label><input id="estado" required value="SP" maxlength="2">
+      <label>Representante Legal *</label><input id="representanteLegal" required>
+      <label>Cargo *</label><input id="cargoRepresentante" required>
+      <label>E-mail *</label><input id="emailEmpresa" type="email" required>
+      <label>Supervisor de Estágio 1 *</label><input id="supervisor1" required>
+      <label>Função do Supervisor 1 *</label><input id="funcaoSupervisor1" required placeholder="Professor(a)">
+      <label>E-mail do Supervisor 1 *</label><input id="emailSupervisor1" type="email" required>
+      <label>Supervisor de Estágio 2</label><input id="supervisor2">
+      <label>Função do Supervisor 2</label><input id="funcaoSupervisor2" placeholder="Professor(a)">
+      <label>E-mail do Supervisor 2</label><input id="emailSupervisor2" type="email">
+    </fieldset>
+
+    <fieldset>
+      <legend>Professor(a) orientador(a)</legend>
+      <label>Nome *</label><input id="orientadorNome" required>
+      <label>E-mail *</label><input id="orientadorEmail" type="email" required>
+    </fieldset>
+
+    <fieldset>
+      <legend>Plano de atividades</legend>
+      <label>Carga horária *</label><input id="cargaHorariaPlano" required placeholder="100 horas">
+      <label>Relato sintético das atividades planejadas que foram realizadas *</label><textarea id="relatoSintetico" required rows="6"></textarea>
+      <label>Realizada? *</label><select id="realizada" required><option value="">Selecione</option><option>Sim</option><option>Não</option></select>
+      <label>Motivo da não realização</label>
+      <select id="motivoNaoRealizacao"><option value="">Selecione, se necessário</option><option>1 – Tempo insuficiente</option><option>2 – Conhecimento insuficiente</option><option>3 – Mudança no Plano de Atividades</option><option>4 – Substituição por outra atividade</option><option>Outro</option></select>
+      <label>Outro motivo da não realização</label><input id="motivoNaoRealizacaoOutro">
+      <label>Atividade não prevista — descrição</label><textarea id="atividadeNaoPrevistaDescricao" rows="4"></textarea>
+      <label>Atividade não prevista — justificativa</label><textarea id="atividadeNaoPrevistaJustificativa" rows="4"></textarea>
+    </fieldset>
+
+    <fieldset>
+      <legend>Contabilização das atividades</legend>
+      <label>Observação — horas *</label><input id="observacaoHoras" required placeholder="40 horas">
+      <label>Observação — mínimo</label><input id="observacaoMinimo">
+      <label>Observação — máximo</label><input id="observacaoMaximo">
+      <label>Participação — horas *</label><input id="participacaoHoras" required placeholder="40 horas">
+      <label>Participação — mínimo</label><input id="participacaoMinimo">
+      <label>Participação — máximo</label><input id="participacaoMaximo">
+      <label>Regência — horas *</label><input id="regenciaHoras" required placeholder="30 horas">
+      <label>Regência — mínimo</label><input id="regenciaMinimo">
+      <label>Regência — máximo</label><input id="regenciaMaximo">
+      <label>Total *</label><input id="totalAtividades" required placeholder="110 horas">
+    </fieldset>
+
+    <fieldset>
+      <legend>Relatório de atividades</legend>
+      <label>Tipo do relatório *</label><select id="tipoRelatorio" required><option value="">Selecione</option><option>Parcial/Semestral</option><option>Final</option></select>
+      <label>Atividades em ordem cronológica *</label><textarea id="atividadesCronologicas" required rows="8"></textarea>
+      <label>Descrição das atividades realizadas *</label><textarea id="descricaoAtividades" required rows="8"></textarea>
+      <label>Principal atividade relacionada ao curso *</label><textarea id="principalAtividade" required rows="6"></textarea>
+    </fieldset>
+
+    <fieldset>
+      <legend>Avaliação do(a) supervisor(a)</legend>
+      <label>Parecer do(a) supervisor(a)</label><textarea id="parecerSupervisor" rows="5"></textarea>
+      <label>Avaliação de desempenho</label><select id="desempenhoSupervisor"><option value="">Selecione</option><option>Excelente</option><option>Muito Bom</option><option>Bom</option><option>Regular</option><option>Insuficiente</option></select>
+      <label>Comentários</label><textarea id="comentariosSupervisor" rows="4"></textarea>
+      <label>Considerações sobre o relatório</label><textarea id="consideracoesSupervisor" rows="4"></textarea>
+      <label>Aprovação do relatório</label><select id="aprovacaoSupervisor"><option value="">Selecione</option><option>APROVADO</option><option>REPROVADO</option></select>
+    </fieldset>
+
+    <fieldset>
+      <legend>Parecer do(a) professor(a) orientador(a)</legend>
+      <label>Parecer</label><textarea id="parecerOrientador" rows="5"></textarea>
+      <label>Avaliação de desempenho</label><select id="desempenhoOrientador"><option value="">Selecione</option><option>Excelente</option><option>Muito Bom</option><option>Bom</option><option>Regular</option><option>Insuficiente</option></select>
+      <label>Comentários</label><textarea id="comentariosOrientador" rows="4"></textarea>
+      <label>Aprovação do relatório</label><select id="aprovacaoOrientador"><option value="">Selecione</option><option>APROVADO</option><option>REPROVADO</option></select>
+      <label>Aprovação do estágio</label><select id="aprovacaoEstagio"><option value="">Selecione</option><option>APROVADO</option><option>REPROVADO</option><option>Não se aplica (relatório parcial)</option></select>
+    </fieldset>
+
+    <fieldset>
+      <legend>Assinaturas</legend>
+      <label>Responsável pelo setor de Estágio no campus *</label><input id="responsavelSetor" required>
+      <label>Professor(a) do Curso responsável pelos estágios</label><input id="professorResponsavelEstagios" value="Andrezza Campos Moretti">
+    </fieldset>
+
+    <div id="mensagens" class="mensagens" aria-live="polite"></div>
+    <button onclick="gerarDocumento()">Gerar documento</button>
+    <button onclick="imprimirDocumento()">Imprimir / Salvar em PDF</button>
+    <button class="secundario" onclick="limparFormulario()">Limpar formulário</button>
+  </aside>
+
+  <section class="documento" id="documento">
+    <div class="cabecalho-documento">
+      <p>Ministério da Educação</p>
+      <p>Instituto Federal de Educação, Ciência e Tecnologia de São Paulo</p>
+      <p>Campus Sorocaba</p>
+      <p>COORD. DE LICENCIATURA EM PEDAGOGIA</p>
+      <h2>RELATÓRIO DE ATIVIDADES, TERMO DE REALIZAÇÃO e AVALIAÇÃO DO ESTÁGIO (Licenciaturas)</h2>
+    </div>
+
+    <h3>IDENTIFICAÇÃO DO(A) ALUNO(A)</h3>
+    <p><strong>Nome:</strong> <span data-out="nomeAluno">[preencher]</span></p>
+    <p><strong>Curso:</strong> <span data-out="curso">[preencher]</span></p>
+    <p><strong>Período/Semestre:</strong> <span data-out="periodoSemestre">[preencher]</span></p>
+    <p><strong>Prontuário:</strong> <span data-out="prontuario">[preencher]</span></p>
+    <p><strong>E-mail:</strong> <span data-out="emailAluno">[preencher]</span></p>
+    <p><strong>Telefone:</strong> <span data-out="telefoneAluno">[preencher]</span></p>
+    <p><strong>Portador de Deficiência?</strong> <span data-out="deficienciaTexto">[preencher]</span></p>
+
+    <h3>DADOS DO ESTÁGIO</h3>
+    <p><strong>Tipo:</strong> <span data-out="tipoEstagio">[preencher]</span></p>
+    <p><strong>Início do Estágio:</strong> <span data-out="inicioEstagio">[dd/mm/aaaa]</span></p>
+    <p><strong>Término do Estágio:</strong> <span data-out="terminoEstagio">[dd/mm/aaaa]</span></p>
+    <p><strong>Horário do Estágio:</strong> <span data-out="horarioEstagio">[preencher]</span></p>
+    <p><strong>Total de Horas:</strong> <span data-out="totalHoras">[preencher]</span></p>
+    <p><strong>Avaliação/Relatório:</strong> <span data-out="avaliacaoRelatorio">[preencher]</span></p>
+    <p><strong>Motivo do encerramento:</strong> <span data-out="motivoEncerramentoFinal">[preencher]</span></p>
+
+    <h3>DADOS DA EMPRESA / ESCOLA</h3>
+    <p><strong>Razão Social:</strong> <span data-out="razaoSocial">[preencher]</span></p>
+    <p><strong>CNPJ:</strong> <span data-out="cnpj">[preencher]</span></p>
+    <p><strong>Ramo de Atividade:</strong> <span data-out="ramoAtividade">[preencher]</span></p>
+    <p><strong>CPF (autônomo):</strong> <span data-out="cpfAutonomo">[preencher]</span></p>
+    <p><strong>Telefone:</strong> <span data-out="telefoneEmpresa">[preencher]</span></p>
+    <p><strong>Endereço:</strong> <span data-out="endereco">[preencher]</span></p>
+    <p><strong>CEP:</strong> <span data-out="cep">[preencher]</span> <strong>Bairro:</strong> <span data-out="bairro">[preencher]</span> <strong>Cidade:</strong> <span data-out="cidade">[preencher]</span> <strong>Estado:</strong> <span data-out="estado">[preencher]</span></p>
+    <p><strong>Representante Legal:</strong> <span data-out="representanteLegal">[preencher]</span> <strong>Cargo:</strong> <span data-out="cargoRepresentante">[preencher]</span> <strong>E-mail:</strong> <span data-out="emailEmpresa">[preencher]</span></p>
+    <p><strong>Supervisor de Estágio (1):</strong> <span data-out="supervisor1">[preencher]</span> <strong>Função:</strong> <span data-out="funcaoSupervisor1">[preencher]</span> <strong>E-mail:</strong> <span data-out="emailSupervisor1">[preencher]</span></p>
+    <p><strong>Supervisor de Estágio (2):</strong> <span data-out="supervisor2">[preencher]</span> <strong>Função:</strong> <span data-out="funcaoSupervisor2">[preencher]</span> <strong>E-mail:</strong> <span data-out="emailSupervisor2">[preencher]</span></p>
+
+    <h3>DADOS DO(A) PROFESSOR(A) ORIENTADOR(A)</h3>
+    <p><strong>Nome:</strong> <span data-out="orientadorNome">[preencher]</span></p>
+    <p><strong>E-mail:</strong> <span data-out="orientadorEmail">[preencher]</span></p>
+
+    <h3>PLANO DE ATIVIDADES</h3>
+    <p><strong>Carga Horária:</strong> <span data-out="cargaHorariaPlano">[preencher]</span></p>
+    <p><strong>RELATO SINTÉTICO DAS ATIVIDADES PLANEJADAS QUE FORAM REALIZADAS:</strong></p>
+    <p class="texto-longo"><span data-out="relatoSintetico">[preencher]</span></p>
+    <p><strong>Realizada?</strong> <span data-out="realizada">[preencher]</span></p>
+    <p><strong>Motivo da não realização da atividade:</strong> <span data-out="motivoNaoRealizacaoFinal">[preencher]</span></p>
+    <p><strong>Realização de atividade não prevista no Plano de Atividades:</strong></p>
+    <p><strong>Descreva:</strong> <span data-out="atividadeNaoPrevistaDescricao">[preencher]</span></p>
+    <p><strong>Justifique:</strong> <span data-out="atividadeNaoPrevistaJustificativa">[preencher]</span></p>
+
+    <h3>CONTABILIZAÇÃO DAS ATIVIDADES / DECLARAÇÃO DE FREQUÊNCIA</h3>
+    <table class="tabela">
+      <tr><th>Tipo de atividade</th><th>Quantidade de horas</th><th>Mínimo</th><th>Máximo</th></tr>
+      <tr><td>Observação</td><td><span data-out="observacaoHoras">[preencher]</span></td><td><span data-out="observacaoMinimo">[preencher]</span></td><td><span data-out="observacaoMaximo">[preencher]</span></td></tr>
+      <tr><td>Participação</td><td><span data-out="participacaoHoras">[preencher]</span></td><td><span data-out="participacaoMinimo">[preencher]</span></td><td><span data-out="participacaoMaximo">[preencher]</span></td></tr>
+      <tr><td>Regência</td><td><span data-out="regenciaHoras">[preencher]</span></td><td><span data-out="regenciaMinimo">[preencher]</span></td><td><span data-out="regenciaMaximo">[preencher]</span></td></tr>
+      <tr><td><strong>TOTAL</strong></td><td colspan="3"><span data-out="totalAtividades">[preencher]</span></td></tr>
+    </table>
+
+    <h3>RELATÓRIO DE ATIVIDADES DE ESTÁGIO SUPERVISIONADO</h3>
+    <p><strong>Tipo do Relatório:</strong> <span data-out="tipoRelatorio">[preencher]</span></p>
+    <p><strong>1. Atividades em ordem cronológica com cargas horárias:</strong></p>
+    <p class="texto-longo"><span data-out="atividadesCronologicas">[preencher]</span></p>
+    <p><strong>2. Descrição das atividades realizadas:</strong></p>
+    <p class="texto-longo"><span data-out="descricaoAtividades">[preencher]</span></p>
+    <p><strong>3. Principal atividade relacionada às disciplinas do curso:</strong></p>
+    <p class="texto-longo"><span data-out="principalAtividade">[preencher]</span></p>
+
+    <div class="quebra-pagina"></div>
+
+    <h3>TERMO DE REALIZAÇÃO E AVALIAÇÃO DO ESTÁGIO</h3>
+    <p><em>Preenchimento sob responsabilidade do(a) Supervisor(a) de Estágio da Concedente</em></p>
+    <p><strong>PARECER DO(A) SUPERVISOR(A) DO ESTÁGIO:</strong></p>
+    <p class="texto-longo"><span data-out="parecerSupervisor">[preencher]</span></p>
+    <p><strong>AVALIAÇÃO DE DESEMPENHO DO(A) ESTAGIÁRIO(A):</strong> <span data-out="desempenhoSupervisor">[preencher]</span></p>
+    <p><strong>Comentários:</strong> <span data-out="comentariosSupervisor">[preencher]</span></p>
+    <p><strong>Considerações:</strong> <span data-out="consideracoesSupervisor">[preencher]</span></p>
+    <p><strong>Aprovação do Relatório:</strong> <span data-out="aprovacaoSupervisor">[preencher]</span></p>
+
+    <h3>PARECER DO(A) PROFESSOR(A) ORIENTADOR(A)</h3>
+    <p><em>Preenchimento sob responsabilidade do(a) Professor(a) Orientador(a) do IFSP</em></p>
+    <p class="texto-longo"><span data-out="parecerOrientador">[preencher]</span></p>
+    <p><strong>AVALIAÇÃO DE DESEMPENHO DO(A) ESTAGIÁRIO(A):</strong> <span data-out="desempenhoOrientador">[preencher]</span></p>
+    <p><strong>Comentários:</strong> <span data-out="comentariosOrientador">[preencher]</span></p>
+    <p><strong>Aprovação do Relatório:</strong> <span data-out="aprovacaoOrientador">[preencher]</span></p>
+    <p><strong>Tipo de Relatório:</strong> <span data-out="tipoRelatorio">[preencher]</span></p>
+    <p><strong>Aprovação do Estágio:</strong> <span data-out="aprovacaoEstagio">[preencher]</span></p>
+
+    <h3>CONCLUSÃO DO ESTÁGIO</h3>
+    <p><strong>Assinam:</strong></p>
+    <div class="assinaturas">
+      <div>_______________________________________<br><span data-out="nomeAluno">Estudante / Estagiário(a)</span><br>Estudante / Estagiário(a)</div>
+      <div>_______________________________________<br><span data-out="supervisor1">Supervisor(a) da Unidade Concedente</span><br>Supervisor(a) da Unidade Concedente</div>
+      <div>_______________________________________<br><span data-out="orientadorNome">Professor(a) Orientador(a)</span><br>Professor(a) Orientador(a)</div>
+      <div>_______________________________________<br><span data-out="responsavelSetor">Responsável pelo setor de Estágio no campus</span><br>Responsável pelo setor de Estágio no campus</div>
+      <div>_______________________________________<br><span data-out="professorResponsavelEstagios">Professor(a) do Curso responsável pelos estágios</span><br>Professor(a) do Curso responsável pelos estágios</div>
+    </div>
+    <p class="nota-final">Documento assinado eletronicamente.</p>
+  </section>
+</main>
+<script src="script.js"></script>
+</body>
+</html>
